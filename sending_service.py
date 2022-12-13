@@ -1,7 +1,6 @@
 import requests
 
-token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDIwMjk5MjMsImlzcyI6ImZhYnJpcXVlIiwibmFtZSI6InZvb2xmZWgifQ' \
-        '.JRPm9JY4KUYOc1zdWBLlFaYVh7DduHHY2oontP6iRWA'
+token = 'TOKEN'
 
 
 def send_message(message_id: int, phone: int, text: str):
