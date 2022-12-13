@@ -48,7 +48,7 @@ def get_mailings(mailing_id: int):
 def get_messages(mailing_id: int):
     answer = treatment.get_messages(mailing_id)
     if not answer:
-        raise HTTPException(status_code=404, detail='Сообщений по этой рассылке нет.')
+        raise HTTPException(status_code=404, detail='Рассылка не найдена.')
     return answer
 
 
