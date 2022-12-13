@@ -51,9 +51,11 @@ def get_clients_from_filters(pd_mailing: models.Mailing):
 
 
 def get_mailings(mailing_id: int):
+    mailing_info = db.Session.query(db.Mailing).filter(db.Mailing.id == mailing_id).first()
+    if mailing_info is None:
+        return None
     success = db.Session.query(db.Message).filter(db.Message.status == 'Успешно').count()
     error = db.Session.query(db.Message).filter(db.Message.status == 'Ошибка 400').count()
-    mailing_info = db.Session.query(db.Mailing).filter(db.Mailing.id == mailing_id).first()
     result = {"Информация о рассылке": mailing_info,
               "Успешных сообщений": success,
               "Сообщений с ошибкой 400": error}
