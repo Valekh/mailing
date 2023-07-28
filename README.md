@@ -1,67 +1,79 @@
-# СЕРВИС УВЕДОМЛЕНИЙ
+<h1>Sending Service</h1>
 
-## Необходимые библиотеки для запуска
+<h2>Required Libraries for Launch</h2>
 
-    pip install fastapi
+<pre><code>pip install fastapi
+pip install apscheduler
+pip install requests
+pip install sqlalchemy
+</code></pre>
 
-    pip install apscheduler
+<h2>Command for Launch</h2>
 
-    pip install requests
+<pre><code>uvicorn main:app --reload
+</code></pre>
 
-    pip install sqlalchemy
+<h2>Token</h2>
 
-## Команда для запуска
+<p>In the <code>sending_service.py</code>code> file, replace the  <code>token = </code>  with your own token for the mailing service. Please do not hardcode to save token. Use environment variables. </p>
 
-    uvicorn main:app --reload
+<h2>Documentation</h2>
 
-## ТОКЕН
+<p>For local access: <a href="http://127.0.0.1:8000/docs#/">http://127.0.0.1:8000/docs#/</a></p>
 
-В файле `sending_service.py ` в `token = ` вставьте свой токен для сервиса рассылки.
+<h3>Commands</h3>
 
-## Документация
+<p>For local access: <a href="http://127.0.0.1:8000/">http://127.0.0.1:8000/</a> or your server.</p>
+<p>Hereafter, the specified address will be denoted by a dot for conciseness.</p>
 
-По локальному адресу: http://127.0.0.1:8000/docs#/
+<h4>POST Requests</h4>
 
-### Команды
+<p>Adding a client to the database:</p>
 
-По локальному адресу http://127.0.0.1:8000/ или вашему серверу.
-Далее указанный адрес, для лаконичности, будет отмечаться точкой.
+<pre><code>./client/
+</code></pre>
 
-#### POST-запросы
+<p>Creating a mailing:</p>
 
-Добавление клиента в базу:
+<pre><code>./mailing
+</code></pre>
 
-    ./client/
+<h4>GET Requests</h4>
 
-Создание рассылки:
+<p>Get a mailing by ID:</p>
 
-    ./mailing
-#### GET-запросы
-Получить рассылку по id:
+<pre><code>./mailing/{mailing_id}
+</code></pre>
 
-    ./mailing/{mailing_id}
-Получить все сообщения по id рассылки:
+<p>Get all messages by mailing ID:</p>
 
-    ./message/{mailing_id}
-#### DELETE-запросы
-Удалить клиента из базы данных:
+<pre><code>./message/{mailing_id}
+</code></pre>
 
-    ./client/{client_id}
-Удалить рассылку:
+<h4>DELETE Requests</h4>
 
-    ./mailing/{mailing_id}
+<p>Delete a client from the database:</p>
 
-#### PATCH-запросы
-Обновить любые данные клиента:
+<pre><code>./client/{client_id}
+</code></pre>
 
-    ./client/{client_id}
+<p>Delete a mailing:</p>
 
-Обновить атрибуты рассылки:
+<pre><code>./mailing/{mailing_id}
+</code></pre>
 
-    ./mailing/{mailing_id}
+<h4>PATCH Requests</h4>
 
-### Дополнительные задания
+<p>Update any client data:</p>
 
-Пункт 5 (документация со Swagger UI).
+<pre><code>./client/{client_id}
+</code></pre>
 
-    
+<p>Update mailing attributes:</p>
+
+<pre><code>./mailing/{mailing_id}
+</code></pre>
+
+<h3>Additional Tasks</h3>
+
+<p>Task 5 (documentation with Swagger UI).</p>
